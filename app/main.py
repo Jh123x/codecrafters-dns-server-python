@@ -68,7 +68,11 @@ class Packet:
             bool_to_bin(self.recursion_desired),
             bool_to_bin(self.recursion_available),
             int_to_bin(self.reserved, 3),
-            int_to_bin(self.response_code, 4)
+            int_to_bin(self.response_code, 4),
+            int_to_bin(self.q_count, 16),
+            int_to_bin(self.an_count, 16),
+            int_to_bin(self.ns_count, 16),
+            int_to_bin(self.ar_count, 16),
         ]
         bin_str = "".join(builder)
         return bitstring_to_bytes(bin_str)
